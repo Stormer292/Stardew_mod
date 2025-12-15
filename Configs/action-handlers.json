@@ -1,0 +1,123 @@
+{
+  "ActionHandlers": [
+    {
+      "Code": "GREET_PLAYER",
+      "PromptDescription": "Теплое личное приветствие, коротко.",
+      "JsonExample": "{ \"action\":\"GREET_PLAYER\", \"text\":\"Good to see you, {player}! Need any tools repaired or new ones forged?\" }",
+      "CacheDuration": 200,
+      "CacheResponse": false
+    },
+    {
+      "Code": "REFUSAL",
+      "PromptDescription": "Вежливый отказ, краткая причина.",
+      "JsonExample": "{ \"action\":\"REFUSAL\", \"text\":\"Sorry, {player}, I'm in the middle of forging something important right now.\" }",
+      "CacheDuration": 150,
+      "CacheResponse": false
+    },
+    {
+      "Code": "START_FETCH_QUEST",
+      "PromptDescription": "Предложить квест на сбор предметов, основанный на потребностях или очереди крафта.",
+      "JsonExample": "{ \"action\":\"START_FETCH_QUEST\", \"text\":\"I need 5 Iron Ore to smelt into bars for a new project. Could you bring them?\", \"item\":\"Iron Ore\", \"amount\":5, \"reward\":450 }",
+      "CacheDuration": 240,
+      "CacheResponse": true
+    },
+    {
+      "Code": "CRAFT_QUEST",
+      "PromptDescription": "Предложить квест на крафт, основанный на очереди крафта или нуждах.",
+      "JsonExample": "{ \"action\":\"CRAFT_QUEST\", \"text\":\"I'm working on forging a pickaxe but need 3 more Iron Ore. Can you help, {player}?\", \"item\":\"Iron Ore\", \"amount\":3, \"reward\":500 }",
+      "CacheDuration": 2400,
+      "CacheResponse": true
+    },
+    {
+      "Code": "FOOD_QUEST_REQUEST",
+      "PromptDescription": "Квест на еду при сильном голоде — NPC съест предмет после получения.",
+      "JsonExample": "{ \"action\":\"FOOD_QUEST_REQUEST\", \"text\":\"{player}, I'm really struggling with hunger here. Could you bring me 2 Cheese?\", \"item\":\"Cheese\", \"amount\":2, \"reward\":150 }",
+      "CacheDuration": 240,
+      "CacheResponse": true
+    },
+    {
+      "Code": "EAT",
+      "PromptDescription": "Объявление о намерении поесть или просьба принести еду, если голоден.",
+      "JsonExample": "{ \"action\":\"EAT\", \"text\":\"I'm starving, {player}. Bring Cheese?\", \"item\":\"Cheese\", \"amount\":1 }",
+      "CacheDuration": 300,
+      "CacheResponse": false
+    },
+    {
+      "Code": "HUNGRY_EAT_FROM_INV",
+      "PromptDescription": "Съесть еду из видимого инвентаря, когда голоден (увеличивает сытость).",
+      "JsonExample": "{ \"action\":\"HUNGRY_EAT_FROM_INV\", \"text\":\"I'm so hungry, let me eat this Cheese.\", \"item\":\"Cheese\", \"amount\":1 }",
+      "CacheDuration": 0,
+      "CacheResponse": false
+    },
+    {
+      "Code": "HUNGRY_REQUEST_HELP",
+      "PromptDescription": "Попросить еду, когда голоден и нет еды в инвентаре; будьте конкретны относительно предмета.",
+      "JsonExample": "{ \"action\":\"HUNGRY_REQUEST_HELP\", \"text\":\"{player}, I'm really hungry. Could you spare some Cheese?\", \"item\":\"Cheese\", \"amount\":1 }",
+      "CacheDuration": 300,
+      "CacheResponse": true
+    },
+    {
+      "Code": "HUNGRY_REQUEST_ITEM",
+      "PromptDescription": "Попросить конкретный предмет еды у игрока (похож на HUNGRY_REQUEST_HELP, может иметь иной тон).",
+      "JsonExample": "{ \"action\":\"HUNGRY_REQUEST_ITEM\", \"text\":\"{player}, I'm really hungry and ran out of food. Could you spare some Goat Cheese?\", \"item\":\"Goat Cheese\", \"amount\":1 }",
+      "CacheDuration": 0,
+      "CacheResponse": true
+    },
+    {
+      "Code": "TELL_STORY",
+      "PromptDescription": "Поделиться короткой историей или воспоминанием (2-4 предложения).",
+      "JsonExample": "{ \"action\":\"TELL_STORY\", \"title\":\"The Perfect Pickaxe\", \"text\":\"I once spent three days forging what I thought was the perfect pickaxe...\" }",
+      "CacheDuration": 400,
+      "CacheResponse": false
+    },
+    {
+      "Code": "SHARE_RUMOR",
+      "PromptDescription": "Передать слух или сплетню о городе; можно указать тему.",
+      "JsonExample": "{ \"action\":\"SHARE_RUMOR\", \"topic\":\"mines\", \"text\":\"I heard someone found a rare metal in the deepest levels of the mines.\" }",
+      "CacheDuration": 400,
+      "CacheResponse": false
+    },
+    {
+      "Code": "GIVE_TIP",
+      "PromptDescription": "Дать практический совет по теме (например, металлургия, добыча).",
+      "JsonExample": "{ \"action\":\"GIVE_TIP\", \"topic\":\"mining\", \"text\":\"When mining, always carry a few iron bars with you.\" }",
+      "CacheDuration": 300,
+      "CacheResponse": false
+    },
+    {
+      "Code": "QUEST_THANKS",
+      "PromptDescription": "Искренняя благодарность после выполнения квеста; упомяните предмет и пользу.",
+      "JsonExample": "{ \"action\":\"QUEST_THANKS\", \"text\":\"Thank you for those Iron Bars, {player}! They'll help me forge some quality tools for the farm.\" }",
+      "CacheDuration": 200,
+      "CacheResponse": false
+    },
+    {
+      "Code": "TIRED_REST_ACTION",
+      "PromptDescription": "Объявить о необходимости отдохнуть, когда устал (повысить приоритет отдыха).",
+      "JsonExample": "{ \"action\":\"TIRED_REST_ACTION\", \"text\":\"I'm exhausted, {player}. Need to go home and rest.\" }",
+      "CacheDuration": 400,
+      "CacheResponse": false
+    },
+    {
+      "Code": "TIRED_CONTINUE_WORKING",
+      "PromptDescription": "Продолжать работать, несмотря на усталость; выразить решимость или жалобу.",
+      "JsonExample": "{ \"action\":\"TIRED_CONTINUE_WORKING\", \"text\":\"I'm getting tired, but I have to finish this job for the farm.\" }",
+      "CacheDuration": 0,
+      "CacheResponse": false
+    },
+    {
+      "Code": "LOW_MOOD_SEEK_COMPANY",
+      "PromptDescription": "Попросить компании или поддержки при плохом настроении.",
+      "JsonExample": "{ \"action\":\"LOW_MOOD_SEEK_COMPANY\", \"text\":\"{player}, could you stay and talk for a bit? I'm feeling down today.\" }",
+      "CacheDuration": 0,
+      "CacheResponse": false
+    },
+    {
+      "Code": "HAPPY_SHARE_ENERGY",
+      "PromptDescription": "Поделиться позитивной энергией при хорошем настроении; предложить помощь или рассказать новости.",
+      "JsonExample": "{ \"action\":\"HAPPY_SHARE_ENERGY\", \"text\":\"{player}, I'm feeling great today! If you need any tools repaired or want to learn about metalworking, just let me know.\" }",
+      "CacheDuration": 0,
+      "CacheResponse": false
+    }
+  ]
+}

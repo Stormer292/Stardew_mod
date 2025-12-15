@@ -1,0 +1,27 @@
+{
+  "PredefinedQuestItems": {
+    "Iron Bar": 335,
+    "Copper Bar": 334,
+    "Gold Bar": 336,
+    "Coal": 382,
+    "Wood": 388,
+    "Hardwood": 709,
+    "Stone": 390,
+    "Clay": 330,
+    "Fiber": 771,
+    "Maple Syrup": 724,
+    "Oak Resin": 725,
+    "Pine Tar": 726,
+    "Battery Pack": 787,
+    "Cloth": 428,
+    "Wool": 440,
+    "Cheese": 424,
+    "Goat Cheese": 426,
+    "Honey": 340,
+    "Jelly": 344,
+    "Pickles": 342,
+    "Copper Ore": 337,
+    "Iron Ore": 380,
+    "Gold Ore": 384
+  }
+}

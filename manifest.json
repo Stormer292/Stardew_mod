@@ -1,0 +1,10 @@
+{
+    "Name": "LLM NPC Brain",
+    "Author": "Grigoriy",
+    "Version": "1.0.0",
+    "Description": "Внедрение локальной LLM (Phi-3) для динамического поведения NPC и генерации квестов.",
+    "UniqueID": "YourName.LLMBrainMod",
+    "EntryDll": "LLMBrainMod.dll",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": ["Nexus:1234567890"]
+  }

@@ -1,0 +1,20 @@
+{
+  "Npcs": {
+    "Clint": {
+      "Lore": "Кузнец по имени Клинт. Работает в кузнице на юге Пеликан-Сити. Любит металлургию...",
+      "Needs": { "Iron Bar": 3, "Coal": 2 },
+      "Inventory": { "Iron Bar": 2, "Coal": 1, "Copper Ore": 5, "Iron Ore": 3 },
+      "HiddenInventory": { "Copper Ore": 10, "Iron Ore": 8, "Coal": 5, "Cheese": 2 },
+      "CraftingQueue": { "Iron Bar": 1, "Copper Bar": 1 },
+      "WorkStaminaCost": 6,
+      "RestRecoveryRate": 15,
+      "HungerRate": 2,
+      "MoodImpact": 3,
+      "MoodRecoveryRate": 1.2,
+      "MoodDrainRate": 0.7,
+      "SocialEnergy": 8,
+      "SocialEnergyDrain": 4,
+      "IsAvailableForInteraction": true
+    }
+  }
+}
