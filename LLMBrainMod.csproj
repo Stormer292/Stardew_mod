@@ -1,21 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework> 
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>LLMBrainMod</AssemblyName>
     <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    
-    <!-- ПУТЬ К ИГРЕ -->
-    <GamePath>E:\SteamLibrary\steamapps\common\Stardew Valley</GamePath> 
-    
-    <!-- Путь для локальной компиляции (промежуточная папка) -->
-    <OutDir>$(MSBuildProjectDirectory)\bin\Release\net6.0\</OutDir> 
-    <OutputPath>$(OutDir)</OutputPath>
-    
-    <!-- Путь для развертывания мода SMAPI -->
-    <SMAPIDeployPath>$(GamePath)\Mods\LLMBrainMod</SMAPIDeployPath>
-
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,22 +12,4 @@
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
     <PackageReference Include="Lib.Harmony" Version="2.2" />
   </ItemGroup>
-
-  <!-- КОПИРОВАНИЕ ЗАВИСИМОСТЕЙ ПОСЛЕ СБОРКИ -->
-  <Target Name="PostBuildDeploy" AfterTargets="Build">
-    <ItemGroup>
-      <!-- Собираем все DLL, которые нужно скопировать -->
-      <FilesToCopy Include="$(OutDir)**\*.*" Exclude="$(OutDir)\ref\**\*.*;$(OutDir)\*.pdb" />
-    </ItemGroup>
-
-    <!-- Очистка целевой папки перед копированием -->
-    <RemoveDir Directories="$(SMAPIDeployPath)" />
-    
-    <!-- Копирование всех файлов (включая DLL LLamaSharp и папку runtimes) -->
-    <Copy SourceFiles="@(FilesToCopy)" DestinationFiles="@(FilesToCopy-&gt;Replace('$(OutDir)', '$(SMAPIDeployPath)\'))" />
-    
-    <!-- Копирование manifest.json, если он не был скопирован автоматически -->
-    <Copy SourceFiles="$(MSBuildProjectDirectory)\manifest.json" DestinationFolder="$(SMAPIDeployPath)" />
-  </Target>
-
 </Project>
